@@ -1,5 +1,7 @@
 import React from "react";
 
+import { useStyle } from "./footerStyle";
+
 import {
   Box,
   Typography,
@@ -10,37 +12,31 @@ import {
 } from "@material-ui/core";
 
 export default function Footer() {
+  const classes = useStyle();
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      justifyContent="flex-end"
-      marginTop="4px"
-      minHeight="5vh"
-    >
-      <Divider />
-      <Box margin="3px" style={{ textAlign: "center" }}>
-        <List
-          component="footer"
-          style={{ display: "flex", flexDirection: "row" }}
-        >
-          <ListItem style={{ textAlign: "center" }} button>
-            <ListItemText primary="About Us" />
-          </ListItem>
-          <ListItem style={{ textAlign: "center" }} button>
-            <ListItemText primary="Contact Us" />
-          </ListItem>
-          <ListItem style={{ textAlign: "center" }} button>
-            <ListItemText primary="Our Policy" />
-          </ListItem>
-        </List>
-      </Box>
+    <>
+      <Box display="flex" flexDirection="column" minHeight="77px">
+        <Divider />
+        <Box className={classes.box}>
+          <List component="footer" className={classes.list}>
+            <ListItem className={classes.listItem} button>
+              <ListItemText primary="About Us" />
+            </ListItem>
+            <ListItem className={classes.listItem} button>
+              <ListItemText primary="Contact Us" />
+            </ListItem>
+            <ListItem className={classes.listItem} button>
+              <ListItemText primary="Our Policy" />
+            </ListItem>
+          </List>
+        </Box>
 
-      <Box margin="3px" style={{ textAlign: "center" }}>
-        <Typography variant="h7">
-          © 2021 Omer Ziger. All rights reserved.
-        </Typography>
+        <Box className={classes.box}>
+          <Typography variant={"h6"}>
+            © 2021 Omer Ziger. All rights reserved.
+          </Typography>
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 }

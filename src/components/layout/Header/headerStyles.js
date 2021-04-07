@@ -4,8 +4,10 @@ export const useStyles = makeStyles({
   headerContainer: {
     display: "flex",
     justifyContent: "space-between",
-    minHeight: "5vh",
-    marginBottom: "4px",
+    alignItems: "center",
+    height: "50px",
+    minHeight: "50px",
+    marginBottom: "14px",
   },
 
   buttons: {
