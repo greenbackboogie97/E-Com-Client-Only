@@ -2,7 +2,7 @@ import React from "react";
 
 import { Container, Box } from "@material-ui/core";
 
-import Header from "./components/Layout/Header/Header";
+import Header from "./components/Layout/Header/header";
 import Shop from "./components/Shop/Shop";
 import Footer from "./components/Layout/Footer/Footer";
 
