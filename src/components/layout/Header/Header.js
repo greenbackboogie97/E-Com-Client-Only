@@ -1,34 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { useStyles } from "./headerStyles";
-import { Button, ButtonGroup, IconButton, Divider } from "@material-ui/core";
+import { IconButton, Divider, Typography, Badge } from "@material-ui/core";
 import CameraIcon from "@material-ui/icons/Camera";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
-export default function Header() {
+import Checkout from "../../Checkout/Checkout";
+
+export default function Header(props) {
   const classes = useStyles();
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleCartClick = () => {
+    setOpenModal(true);
+  };
+
+  const onClose = () => {
+    setOpenModal(false);
+  };
+
   return (
     <>
       <div className={classes.headerContainer}>
         <CameraIcon
           color="primary"
-          fontSize="large"
-          style={{ marginLeft: "7px" }}
+          style={{ marginLeft: "7px", fontSize: "large" }}
         />
         <div className={classes.buttons}>
-          <IconButton color="secondary">
-            <ShoppingCartIcon
-              color="secondary"
-              fontSize="large"
-              style={{ marginRight: "7px" }}
-            />
+          <Typography variant="h6" style={{ marginRight: "7px" }}>
+            Welcome Customer Name!
+          </Typography>
+          <IconButton color="secondary" onClick={handleCartClick}>
+            <ShoppingCartIcon color="secondary" fontSize="large" />
           </IconButton>
-          <ButtonGroup color="primary" variant="contained">
-            <Button>Log in</Button>
-            <Button>Register</Button>
-          </ButtonGroup>
         </div>
       </div>
       <Divider />
+      <Checkout
+        open={openModal}
+        handleClose={onClose}
+        addedToCart={props.addedToCart}
+      />
     </>
   );
 }

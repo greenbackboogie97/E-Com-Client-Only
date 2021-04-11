@@ -1,6 +1,8 @@
 import { makeStyles } from "@material-ui/styles";
 
 export const useStyle = makeStyles({
+  root: {},
+
   card: {
     cursor: "pointer",
     transition: ".13s ease-in",

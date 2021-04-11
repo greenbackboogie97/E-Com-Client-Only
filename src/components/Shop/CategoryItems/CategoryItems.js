@@ -1,23 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useStyle } from "./categoryItemsStyle";
 
-import {
-  Grid,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@material-ui/core";
+import { Grid } from "@material-ui/core";
+import ItemCard from "../ItemCard/ItemCard";
 
 import { useItems } from "../Items/useItems";
 
 export default function CategoryItems(props) {
-  const classes = useStyle();
   const AllItems = useItems();
   const [activeCategory, setActiveCategory] = useState(AllItems.Cameras);
 
   const handleCardClick = (item) => {
-    console.log(item);
     props.activeItem(item);
   };
 
@@ -34,24 +26,7 @@ export default function CategoryItems(props) {
       {activeCategory.map((item, index) => {
         return (
           <Grid item key={index} xs={12} md={4} style={{ padding: 30 }}>
-            <Card
-              property={item}
-              className={classes.card}
-              onClick={() => handleCardClick(item)}
-            >
-              <CardMedia
-                component="img"
-                src={item.img}
-                title={item.ProductName}
-              />
-              <CardContent>
-                <Typography color="textSecondary" gutterBottom>
-                  {item.categoryName}
-                </Typography>
-                <Typography variant="h5">{item.ProductName}</Typography>
-                <Typography variant="h6">${item.Price}.00</Typography>
-              </CardContent>
-            </Card>
+            <ItemCard item={item} onCardClick={handleCardClick} />
           </Grid>
         );
       })}

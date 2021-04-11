@@ -2,9 +2,12 @@ import React from "react";
 
 import { Container, Box } from "@material-ui/core";
 
-import Header from "./components/layout/Header/Header";
-import Main from "./components/layout/Main/Main";
-import Footer from "./components/layout/Footer/Footer";
+import Header from "./components/Layout/Header/Header";
+import Shop from "./components/Shop/Shop";
+import Footer from "./components/Layout/Footer/Footer";
+
+import reducer, { initialState } from "./contexts/Reducer";
+import { CartProvider } from "./contexts/CartProvider";
 
 export default function App() {
   return (
@@ -18,9 +21,11 @@ export default function App() {
         borderRadius="10px"
         style={{ background: "white" }}
       >
-        <Header />
-        <Main />
-        <Footer />
+        <CartProvider initialState={initialState} reducer={reducer}>
+          <Header />
+          <Shop />
+          <Footer />
+        </CartProvider>
       </Box>
     </Container>
   );
