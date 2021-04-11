@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useStyles } from "./headerStyles";
-import { IconButton, Divider, Typography, Badge } from "@material-ui/core";
+import { IconButton, Divider, Typography } from "@material-ui/core";
 import CameraIcon from "@material-ui/icons/Camera";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
